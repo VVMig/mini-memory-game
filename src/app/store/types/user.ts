@@ -1,7 +1,7 @@
 export enum Difficulty {
-  Easy = 3,
+  Easy = 4,
   Normal = 6,
-  Hard = 9,
+  Hard = 8,
 }
 
 export enum UserActionTypes {
