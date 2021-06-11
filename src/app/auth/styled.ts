@@ -1,13 +1,9 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-import { storm, rotate, Underline } from '../../packages';
+import { storm, rotate } from '../../packages';
+import { squareSize } from '../helpers'
 
 const deckstopSquareSize = 400;
-
-const formContainerSize = (squareSize: number) => css`
-  width: ${squareSize}px;
-  height: ${squareSize}px;
-`;
 
 const Auth = styled.div`
   background-color: ${({ theme }) => theme.white};
@@ -15,7 +11,7 @@ const Auth = styled.div`
 `;
 
 const FormContainer = styled.div`
-  ${formContainerSize(deckstopSquareSize)};
+  ${squareSize(deckstopSquareSize)};
   display: grid;
   place-items: center;
 `;
@@ -155,29 +151,6 @@ const StartGameButton = styled.button`
   }
 `;
 
-const Rules = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: center;
-`;
-
-const RulesUnderline = styled(Underline)`
-  background-color: ${({ theme }) => theme.lightBlue};
-`;
-
-const RulesToggle = styled.span`
-  font-size: 14px;
-  color: ${({ theme }) => theme.lightBlue};
-  position: relative;
-  cursor: pointer;
-
-  &:hover {
-    ~ ${RulesUnderline} {
-      width: 100%;
-    }
-  }
-`;
-
 export const Styled = {
   Auth,
   AuthForm,
@@ -186,8 +159,5 @@ export const Styled = {
   StartGameButton,
   Label,
   ButtonText,
-  RulesToggle,
-  Rules,
   StartGame,
-  RulesUnderline,
 };

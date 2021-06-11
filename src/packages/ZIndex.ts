@@ -1,3 +1,3 @@
 export enum ZIndex {
-  Underline = -1000,
+  Modal = 2000,
 }
