@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
+import { scale } from '../../packages';
 import { Breakpoints } from '../Breakpoints';
+
+export const pageAnimationDuration = 200;
 
 const Background = styled.div`
   display: flex;
@@ -15,6 +18,16 @@ const Container = styled.div`
   width: 100%;
   height: 100vh;
   place-items: center;
+
+  & .page {
+    &-enter {
+      animation: ${scale} ${pageAnimationDuration}ms linear both;
+    }
+
+    &-exit {
+      display: none;
+    }
+  }
 `;
 
 export const Styled = {

@@ -5,7 +5,7 @@ import { Transition } from 'react-transition-group';
 import { RulesModal } from './RulesModal';
 import { Styled } from './styled';
 
-const modalDelay = 200;
+const modalAnimationDutation = 150;
 
 export const Rules = () => {
   const [isModalShow, setIsModalShow] = useState(false);
@@ -22,7 +22,11 @@ export const Rules = () => {
     <Styled.Rules>
       <Styled.RulesToggle onClick={handleModalOpen}>Rules</Styled.RulesToggle>
       <Styled.RulesUnderline />
-      <Transition in={isModalShow} timeout={modalDelay} unmountOnExit>
+      <Transition
+        in={isModalShow}
+        timeout={modalAnimationDutation}
+        unmountOnExit
+      >
         {(state) => (
           <RulesModal handleModalClose={handleModalClose} stateClass={state} />
         )}
