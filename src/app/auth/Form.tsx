@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Rules } from './Rules';
+import { Rules } from './rules/Rules';
 import { StartGame } from './StartGame';
 import { Styled } from './styled';
 
