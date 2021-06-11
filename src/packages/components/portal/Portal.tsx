@@ -3,11 +3,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 interface Props {
-    rootId?: string;
+  rootId?: string;
 }
 
 export const Portal: React.FC<Props> = ({ children, rootId = 'root' }) => {
-    const root = document.getElementById(rootId);
+  const root = document.getElementById(rootId);
 
-    return root && ReactDOM.createPortal(<>{children}</>, root);
+  return root && ReactDOM.createPortal(<>{children}</>, root);
 };

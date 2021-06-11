@@ -5,7 +5,7 @@ import { ZIndex } from '../../ZIndex';
 import { IAnimation } from './interfaces';
 
 const backgroundOpacity = 0.8;
-const defaultDelay = 200
+const defaultDelay = 200;
 
 interface CloseButtonProps {
   colorToggle: boolean;
@@ -44,7 +44,8 @@ const ModalWrapper = styled.div<IAnimation>`
   }
 
   &.exiting {
-    animation: ${fade} ${({ delay }) => delay || defaultDelay}ms linear reverse both;
+    animation: ${fade} ${({ delay }) => delay || defaultDelay}ms linear reverse
+      both;
   }
 `;
 
@@ -58,7 +59,8 @@ const Modal = styled.div<IAnimation>`
   }
 
   &.exiting {
-    animation: ${scale} ${({ delay }) => delay || defaultDelay}ms linear reverse both;
+    animation: ${scale} ${({ delay }) => delay || defaultDelay}ms linear reverse
+      both;
   }
 `;
 

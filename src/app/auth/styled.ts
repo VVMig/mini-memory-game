@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { storm, rotate } from '../../packages';
-import { squareSize } from '../helpers'
+import { squareSize } from '../helpers';
 
 const deckstopSquareSize = 400;
 

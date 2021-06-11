@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { Underline, Modal } from "../../../packages";
-import { squareSize } from "../../helpers";
+import { Underline, Modal } from '../../../packages';
+import { squareSize } from '../../helpers';
 
 const deckstopSize = 450;
 
@@ -36,12 +36,12 @@ const RulesModal = styled(Modal)`
   ${squareSize(deckstopSize)};
   font-size: 22px;
   color: ${({ theme }) => theme.opacityLighterGrey()};
-  
+
   background-color: ${({ theme }) => theme.white};
-`
+`;
 export const Styled = {
   Rules,
   RulesToggle,
   RulesUnderline,
   RulesModal,
-}
+};
