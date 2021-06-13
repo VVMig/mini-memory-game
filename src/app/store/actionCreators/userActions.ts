@@ -1,15 +1,19 @@
-import { Difficulty, UserAction, UserActionTypes, UserState } from '../types';
+import {
+  Difficulty,
+  InitUserAction,
+  ResetUserAction,
+  UpdateTimeAction,
+  UserActionTypes,
+} from '../types';
 
 const startTimeValue = 0;
 
-export const setUser = (newUser: UserState): UserAction => ({
-  type: UserActionTypes.SET_USER,
-  payload: {
-    ...newUser,
-  },
+export const updateTime = (time: number): UpdateTimeAction => ({
+  type: UserActionTypes.UPDATE_TIME,
+  payload: time,
 });
 
-export const initUser = (name: string, level: Difficulty): UserAction => ({
+export const initUser = (name: string, level: Difficulty): InitUserAction => ({
   type: UserActionTypes.INIT_USER,
   payload: {
     name,
@@ -18,7 +22,7 @@ export const initUser = (name: string, level: Difficulty): UserAction => ({
   },
 });
 
-export const resetUser = (): UserAction => ({
+export const resetUser = (): ResetUserAction => ({
   type: UserActionTypes.RESET_USER,
   payload: {
     name: '',
