@@ -1,20 +1,55 @@
-import React from 'react';
+import React, { useState, FormEventHandler } from 'react';
+import { ChangeEventHandler } from 'react';
 
+import { useHistory } from 'react-router-dom';
+
+import { useActions } from '../hooks';
+import { RoutesEnum } from '../RoutesEnum';
+import { Difficulty } from '../store/types';
+import { DifficultySelect } from './DifficultySelect';
 import { Rules } from './rules/Rules';
 import { StartGame } from './StartGame';
 import { Styled } from './styled';
 
 export const Form = () => {
+  const [username, setUsername] = useState('');
+  const [level, setLevel] = useState(Difficulty.Normal);
+  const history = useHistory();
+  const { initUser } = useActions();
+
+  const onSubmitForm: FormEventHandler = (event) => {
+    event.preventDefault();
+
+    if (!username.trim()) {
+      return;
+    }
+
+    initUser(username, level);
+    history.push(RoutesEnum.Game);
+  };
+
+  const onChangeLevel = (type: Difficulty) => {
+    setLevel(type);
+  };
+
+  const onChangeUsernameInput: ChangeEventHandler<HTMLInputElement> = (
+    event
+  ) => {
+    setUsername(event.currentTarget.value);
+  };
+
   return (
-    <Styled.AuthForm>
+    <Styled.AuthForm onSubmit={onSubmitForm}>
       <Styled.UsernameField
         placeholder="Enter your name"
         required
-        type="text"
         name="username"
         id="username"
+        value={username}
+        onChange={onChangeUsernameInput}
       />
       <Styled.Label htmlFor="username">Name</Styled.Label>
+      <DifficultySelect selectedLevel={level} onChangeLevel={onChangeLevel} />
       <StartGame />
       <Rules />
     </Styled.AuthForm>
