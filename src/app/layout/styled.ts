@@ -10,13 +10,15 @@ const Background = styled.div`
   justify-content: center;
   width: 100%;
   background-color: ${({ theme }) => theme.opacityGrey()};
+  height: 100vh;
+  overflow: hidden;
 `;
 
 const Container = styled.div`
   display: grid;
   max-width: ${Breakpoints.Desktop}px;
   width: 100%;
-  height: 100vh;
+  height: inherit;
   place-items: center;
 
   & .page {
