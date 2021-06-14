@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components';
 
-import { fade, scale } from '../../animations';
+import { fade } from '../../animations';
 import { ZIndex } from '../../ZIndex';
 import { IAnimation } from './interfaces';
 
 const backgroundOpacity = 0.8;
-const defaultDelay = 200;
+const defaultDuration = 200;
 
 interface CloseButtonProps {
   colorToggle: boolean;
@@ -40,12 +40,12 @@ const ModalWrapper = styled.div<IAnimation>`
   cursor: pointer;
 
   &.entering {
-    animation: ${fade} ${({ delay }) => delay || defaultDelay}ms linear both;
+    animation: ${fade} ${({ delay }) => delay || defaultDuration}ms linear both;
   }
 
   &.exiting {
-    animation: ${fade} ${({ delay }) => delay || defaultDelay}ms linear reverse
-      both;
+    animation: ${fade} ${({ delay }) => delay || defaultDuration}ms linear
+      reverse both;
   }
 `;
 
@@ -55,12 +55,12 @@ const Modal = styled.div<IAnimation>`
   cursor: auto;
 
   &.entering {
-    animation: ${scale} ${({ delay }) => delay || defaultDelay}ms linear both;
+    animation: ${fade} ${({ delay }) => delay || defaultDuration}ms linear both;
   }
 
   &.exiting {
-    animation: ${scale} ${({ delay }) => delay || defaultDelay}ms linear reverse
-      both;
+    animation: ${fade} ${({ delay }) => delay || defaultDuration}ms linear
+      reverse both;
   }
 `;
 

@@ -3,7 +3,7 @@ import { ChangeEventHandler } from 'react';
 
 import { useHistory } from 'react-router-dom';
 
-import { useActions } from '../hooks';
+import { useActions, useTypedSelector } from '../hooks';
 import { RoutesEnum } from '../RoutesEnum';
 import { Difficulty } from '../store/types';
 import { DifficultySelect } from './DifficultySelect';
@@ -12,8 +12,9 @@ import { StartGame } from './StartGame';
 import { Styled } from './styled';
 
 export const Form = () => {
-  const [username, setUsername] = useState('');
-  const [level, setLevel] = useState(Difficulty.Normal);
+  const user = useTypedSelector((state) => state.user);
+  const [username, setUsername] = useState(user.name);
+  const [level, setLevel] = useState(user.difficulty);
   const history = useHistory();
   const { initUser } = useActions();
 
