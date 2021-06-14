@@ -26,11 +26,7 @@ export const Body = () => {
   ] = useMatchCards();
 
   useEffect(() => {
-    if (isPaused) {
-      setIsAllowClick(false);
-    } else {
-      setIsAllowClick(true);
-    }
+    setIsAllowClick(!isPaused);
   }, [isPaused]);
 
   useEffect(() => {
