@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { rotate, storm } from "../../animations";
+import { rotate, storm } from '../../animations';
 
 const ButtonText = styled.span`
   color: ${({ theme }) => theme.white};
@@ -23,8 +23,6 @@ const Button = styled.button`
   text-transform: uppercase;
   background: ${({ theme }) => theme.blueLimeGradient};
   border-radius: 10px;
-  font-weight: 400;
-  font-size: 20px;
   font-family: inherit;
   z-index: 0;
   overflow: hidden;
@@ -73,5 +71,5 @@ const Button = styled.button`
 
 export const Styled = {
   Button,
-  ButtonText
-}
+  ButtonText,
+};

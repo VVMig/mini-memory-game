@@ -6,4 +6,5 @@
   border: 0;
   font-family: 'Roboto', sans-serif;
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
 }
