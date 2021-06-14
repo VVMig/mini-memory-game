@@ -6,7 +6,7 @@ import { Styled } from './styled';
 
 export const Actions = () => {
   const { isPaused } = useTypedSelector((store) => store.game);
-  const { togglePause, updateTime } = useActions();
+  const { togglePause, updateTime, restart } = useActions();
 
   const onTogglePause = () => {
     togglePause(isPaused);
@@ -14,6 +14,7 @@ export const Actions = () => {
 
   const onClickRestart = () => {
     updateTime(0);
+    restart(true);
   };
 
   return (
