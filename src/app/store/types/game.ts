@@ -1,9 +1,11 @@
 export interface GameState {
   isPaused: boolean;
+  isRestart: boolean;
 }
 
 export enum GameActionTypes {
   TOGGLE_PAUSE = 'TOGGLE_PAUSE',
+  RESTART = 'RESTART',
 }
 
 export interface TogglePauseAction {
@@ -11,4 +13,9 @@ export interface TogglePauseAction {
   payload: boolean;
 }
 
-export type GameAction = TogglePauseAction;
+export interface RestartAction {
+  type: GameActionTypes.RESTART;
+  payload: boolean;
+}
+
+export type GameAction = TogglePauseAction | RestartAction;
