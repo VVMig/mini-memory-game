@@ -8,6 +8,7 @@ import { Auth } from './auth';
 import { Game } from './game/Game';
 import { Container, pageAnimationDuration } from './layout';
 import { RoutesEnum } from './RoutesEnum';
+import { Score } from './score/Score';
 import { theme } from './theme';
 
 export const App: React.FC = () => {
@@ -25,6 +26,7 @@ export const App: React.FC = () => {
             <Switch location={location}>
               <Route path={RoutesEnum.Home} exact component={Auth} />
               <Route path={RoutesEnum.Game} component={Game} />
+              <Route path={RoutesEnum.Score} component={Score} />
             </Switch>
           </CSSTransition>
         </TransitionGroup>

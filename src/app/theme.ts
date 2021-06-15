@@ -12,6 +12,8 @@ declare module 'styled-components' {
     blueLimeGradient: string;
     lime: string;
     lightBlue: string;
+    gold: string;
+    goldGradient: string;
   }
 }
 
@@ -22,4 +24,7 @@ export const theme: DefaultTheme = {
   blueLimeGradient: 'linear-gradient(to right, #11998e,#38ef7d)',
   lime: '#11998e',
   lightBlue: '#1d89ff',
+  gold: '#f5e000',
+  goldGradient:
+    'linear-gradient(90deg, rgba(255,235,1,1) 0%, rgba(185,255,0,1) 100%)',
 };
