@@ -18,7 +18,6 @@ const RulesUnderline = styled(Underline)`
 const RulesToggle = styled.span`
   font-size: 14px;
   color: ${({ theme }) => theme.lightBlue};
-  position: relative;
   cursor: pointer;
 
   &:hover {
