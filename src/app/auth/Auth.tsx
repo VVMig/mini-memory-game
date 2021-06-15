@@ -3,7 +3,7 @@ import React from 'react';
 import { Form } from './Form';
 import { Styled } from './styled';
 
-export const Auth: React.FC = () => {
+export const Auth = () => {
   return (
     <Styled.Auth>
       <Styled.FormContainer>

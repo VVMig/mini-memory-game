@@ -8,7 +8,7 @@ import { Body } from './Body';
 import { Header } from './header/Header';
 import { Styled } from './styled';
 
-export const Game: React.FC = () => {
+export const Game = () => {
   const name = useTypedSelector(({ user }) => user.name);
   const { initGame, updateTime } = useActions();
 

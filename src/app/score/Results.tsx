@@ -10,8 +10,6 @@ import { Styled } from './styled';
 export const Results = () => {
   const { results } = useTypedSelector(({ user }) => user);
 
-  console.log(results);
-
   return results.length ? (
     <Styled.Results>
       <Styled.ResultsTitle>Your time</Styled.ResultsTitle>

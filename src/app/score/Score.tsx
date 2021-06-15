@@ -5,7 +5,7 @@ import { Congratulations } from './Congratulations';
 import { Results } from './Results';
 import { Styled } from './styled';
 
-export const Score: React.FC = () => {
+export const Score = () => {
   return (
     <Styled.Score>
       <Congratulations />
