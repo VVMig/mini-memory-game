@@ -34,6 +34,10 @@ const GameCardInner = styled.div`
 
   &.entering {
     animation: ${fade} ${matchAnimationDuration}ms linear both reverse;
+
+    & ${GameCardFront} {
+      backface-visibility: visible;
+    }
   }
 
   &.entered {

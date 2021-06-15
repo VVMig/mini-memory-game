@@ -13,10 +13,12 @@ import { Styled } from './styled';
 
 export const Form = () => {
   const user = useTypedSelector((state) => state.user);
+
   const [username, setUsername] = useState(user.name);
   const [level, setLevel] = useState(user.difficulty);
+
   const history = useHistory();
-  const { initUser } = useActions();
+  const { initUser, initGame } = useActions();
 
   const onSubmitForm: FormEventHandler = (event) => {
     event.preventDefault();
@@ -26,6 +28,7 @@ export const Form = () => {
     }
 
     initUser(username, level);
+    initGame();
     history.push(RoutesEnum.Game);
   };
 

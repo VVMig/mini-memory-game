@@ -14,6 +14,8 @@ export const gameReducer = (
       return { ...state, isPaused: action.payload };
     case GameActionTypes.RESTART:
       return { ...state, isRestart: action.payload };
+    case GameActionTypes.INIT_GAME:
+      return action.payload;
     default:
       return state;
   }
