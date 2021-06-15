@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+
+import { useHistory } from 'react-router-dom';
 
 import {
   useActions,
@@ -8,9 +9,12 @@ import {
   useTypedSelector,
 } from '../hooks';
 import { icons } from '../icons';
+import { RoutesEnum } from '../RoutesEnum';
 import { getRandomCards } from './../helpers';
 import { GameCard } from './gameCard/GameCard';
 import { Styled } from './styled';
+
+const lastCards = 2;
 
 export const Body = () => {
   const [playMatchSound, mute] = useSound(
@@ -23,7 +27,9 @@ export const Body = () => {
   const [cards, setCards] = useState(getRandomCards(difficulty));
   const [isAllowClick, setIsAllowClick] = useState(true);
   const [secondCardIndex, setSecondIndex] = useState<number | null>(null);
-  const { restart } = useActions();
+
+  const { restart, addResult } = useActions();
+  const history = useHistory();
 
   const [
     firstSelectedCard,
@@ -49,12 +55,25 @@ export const Body = () => {
     }
   }, [isRestart]);
 
+  const checkWin = () => {
+    if (
+      cards.reduce((matchCount, card) => matchCount + +card.isMatch, 0) ===
+      cards.length - lastCards
+    ) {
+      addResult();
+
+      history.push(RoutesEnum.Score);
+    }
+  };
+
   const checkMatch = (index: number) => {
     if (index !== secondCardIndex) {
       return;
     }
 
     if (isMatch) {
+      checkWin();
+
       setCards((prev) =>
         prev.map((card) => (card.isFront ? { ...card, isMatch: true } : card))
       );
