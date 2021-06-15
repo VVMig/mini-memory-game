@@ -4,10 +4,17 @@ export enum Difficulty {
   Hard = 6,
 }
 
+export interface IResult {
+  difficulty: Difficulty;
+  time: number;
+}
+
 export enum UserActionTypes {
   INIT_USER = 'INIT_USER',
-  RESET_USER = 'RESET_USER',
   UPDATE_TIME = 'UPDATE_TIME',
+  ADD_RESULT = 'ADD_RESULT',
+  CHANGE_DIFFICULTY = 'CHANGE_DIFFICULTY',
+  SET_USER = 'SET_USER',
 }
 
 export interface UpdateTimeAction {
@@ -15,9 +22,18 @@ export interface UpdateTimeAction {
   payload: number;
 }
 
-export interface ResetUserAction {
-  type: UserActionTypes.RESET_USER;
+export interface SetUserAction {
+  type: UserActionTypes.SET_USER;
   payload: UserState;
+}
+
+export interface AddResultAction {
+  type: UserActionTypes.ADD_RESULT;
+}
+
+export interface ChangeDifficultyAction {
+  type: UserActionTypes.CHANGE_DIFFICULTY;
+  payload: Difficulty;
 }
 
 export interface InitUserAction {
@@ -25,10 +41,16 @@ export interface InitUserAction {
   payload: UserState;
 }
 
-export type UserAction = UpdateTimeAction | ResetUserAction | InitUserAction;
+export type UserAction =
+  | UpdateTimeAction
+  | ChangeDifficultyAction
+  | InitUserAction
+  | AddResultAction
+  | SetUserAction;
 
 export interface UserState {
   name: string;
   time: number;
   difficulty: Difficulty;
+  results: IResult[];
 }
