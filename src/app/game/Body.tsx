@@ -13,13 +13,12 @@ import { GameCard } from './gameCard/GameCard';
 import { Styled } from './styled';
 
 export const Body = () => {
-  const [playMatchSound] = useSound(
-    'https://notificationsounds.com/storage/sounds/file-sounds-1140-just-saying.mp3'
+  const [playMatchSound, mute] = useSound(
+    `${process.env.PUBLIC_URL}/assets/sounds/match_sound.mp3`
   );
 
-  const difficulty = useTypedSelector((store) => store.user.difficulty);
-  const isRestart = useTypedSelector((store) => store.game.isRestart);
-  const isPaused = useTypedSelector((store) => store.game.isPaused);
+  const difficulty = useTypedSelector(({ user }) => user.difficulty);
+  const { isSound, isPaused, isRestart } = useTypedSelector(({ game }) => game);
 
   const [cards, setCards] = useState(getRandomCards(difficulty));
   const [isAllowClick, setIsAllowClick] = useState(true);
@@ -33,6 +32,10 @@ export const Body = () => {
     isMatch,
     resetCards,
   ] = useMatchCards();
+
+  useEffect(() => {
+    mute(isSound);
+  }, [isSound]);
 
   useEffect(() => {
     setIsAllowClick(!isPaused);

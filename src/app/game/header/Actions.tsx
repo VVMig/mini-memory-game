@@ -5,8 +5,8 @@ import { icons } from '../../icons';
 import { Styled } from './styled';
 
 export const Actions = () => {
-  const { isPaused } = useTypedSelector((store) => store.game);
-  const { togglePause, updateTime, restart } = useActions();
+  const { isPaused, isSound } = useTypedSelector(({ game }) => game);
+  const { togglePause, updateTime, restart, toggleSound } = useActions();
 
   const onTogglePause = () => {
     togglePause(isPaused);
@@ -15,6 +15,10 @@ export const Actions = () => {
   const onClickRestart = () => {
     updateTime(0);
     restart(true);
+  };
+
+  const onClickSound = () => {
+    toggleSound(isSound);
   };
 
   return (
@@ -27,6 +31,9 @@ export const Actions = () => {
       </Styled.ActionButton>
       <Styled.ActionButton title="Restart" onClick={onClickRestart}>
         {icons.Restart}
+      </Styled.ActionButton>
+      <Styled.ActionButton title="Restart" onClick={onClickSound}>
+        {isSound ? icons.VolumeOn : icons.VolumeOff}
       </Styled.ActionButton>
     </Styled.Actions>
   );

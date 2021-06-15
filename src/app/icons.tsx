@@ -23,6 +23,8 @@ import {
   Umbrella,
   Wrench,
   SunFill,
+  VolumeMuteFill,
+  VolumeUpFill,
 } from 'react-bootstrap-icons';
 
 import { IconType } from './IconType';
@@ -34,6 +36,8 @@ export const icons: Record<IconType, JSX.Element> = {
   [IconType.Clock]: <Clock viewBox="-0.5 0 16 16" />,
   [IconType.Restart]: <ArrowRepeat viewBox="-0.5 0 16 16" />,
   [IconType.Play]: <PlayFill viewBox="-1 0 16 16" />,
+  [IconType.VolumeOff]: <VolumeMuteFill />,
+  [IconType.VolumeOn]: <VolumeUpFill />,
   [IconType.Alarm]: <AlarmFill />,
   [IconType.Cloud]: <CloudFill />,
   [IconType.Lightbulb]: <LightbulbFill />,

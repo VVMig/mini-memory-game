@@ -3,6 +3,7 @@ import {
   InitGameAction,
   RestartAction,
   TogglePauseAction,
+  ToggleSoundAction,
 } from '../types';
 
 export const togglePause = (isPause: boolean): TogglePauseAction => ({
@@ -13,6 +14,11 @@ export const togglePause = (isPause: boolean): TogglePauseAction => ({
 export const restart = (isRestart: boolean): RestartAction => ({
   type: GameActionTypes.RESTART,
   payload: isRestart,
+});
+
+export const toggleSound = (isSound: boolean): ToggleSoundAction => ({
+  type: GameActionTypes.TOGGLE_SOUND,
+  payload: !isSound,
 });
 
 export const initGame = (): InitGameAction => ({

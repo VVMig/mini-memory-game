@@ -3,15 +3,21 @@ import { useState } from 'react';
 
 import { IGameCard } from '../game/interfaces';
 
-type MatchCards = [
-  IGameCard | null,
-  React.Dispatch<React.SetStateAction<IGameCard | null>>,
-  React.Dispatch<React.SetStateAction<IGameCard | null>>,
-  boolean,
-  () => void
-];
+interface IMatchCards {
+  (): [
+    firstSelectedCard: IGameCard | null,
+    setFirstSelectedCard: React.Dispatch<
+      React.SetStateAction<IGameCard | null>
+    >,
+    setSecondSelectedCard: React.Dispatch<
+      React.SetStateAction<IGameCard | null>
+    >,
+    isMtch: boolean,
+    resetCards: () => void
+  ];
+}
 
-export const useMatchCards = (): MatchCards => {
+export const useMatchCards: IMatchCards = () => {
   const [firstSelectedCard, setFirstSelectedCard] = useState<IGameCard | null>(
     null
   );
