@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Actions } from './actions/Actions';
+import { Actions } from './Actions';
 import { Congratulations } from './Congratulations';
 import { Results } from './Results';
 import { Styled } from './styled';

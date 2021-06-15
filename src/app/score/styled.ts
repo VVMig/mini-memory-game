@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+import { Button } from '../../packages';
 import { squareSize } from '../helpers';
 
 const deckstopSquareSize = 600;
@@ -53,6 +54,23 @@ const ResultTime = styled.h3`
   font-weight: lighter;
 `;
 
+const Actions = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`;
+
+const RefreshButton = styled(Button)``;
+
+const ScoreboardButton = styled(Button)`
+  background: ${({ theme }) => theme.goldGradient};
+
+  & span {
+    font-weight: bold;
+    color: ${({ theme }) => theme.opacityGrey()};
+  }
+`;
+
 export const Styled = {
   Score,
   Congratulations,
@@ -61,4 +79,7 @@ export const Styled = {
   Results,
   ResultsTitle,
   ResultTime,
+  Actions,
+  ScoreboardButton,
+  RefreshButton,
 };

@@ -10,17 +10,13 @@ const modalAnimationDutation = 150;
 export const Rules = () => {
   const [isModalShow, setIsModalShow] = useState(false);
 
-  const handleModalOpen = () => {
-    setIsModalShow(true);
-  };
-
-  const handleModalClose = () => {
-    setIsModalShow(false);
+  const onToggleModal = () => {
+    setIsModalShow(!isModalShow);
   };
 
   return (
     <Styled.Rules>
-      <Styled.RulesToggle onClick={handleModalOpen}>Rules</Styled.RulesToggle>
+      <Styled.RulesToggle onClick={onToggleModal}>Rules</Styled.RulesToggle>
       <Styled.RulesUnderline />
       <Transition
         in={isModalShow}
@@ -28,7 +24,7 @@ export const Rules = () => {
         unmountOnExit
       >
         {(state) => (
-          <RulesModal handleModalClose={handleModalClose} stateClass={state} />
+          <RulesModal handleModalClose={onToggleModal} stateClass={state} />
         )}
       </Transition>
     </Styled.Rules>
