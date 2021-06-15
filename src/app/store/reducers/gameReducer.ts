@@ -3,6 +3,7 @@ import { GameAction, GameActionTypes, GameState } from '../types';
 const initialState: GameState = {
   isPaused: false,
   isRestart: false,
+  isSound: true,
 };
 
 export const gameReducer = (
@@ -15,7 +16,9 @@ export const gameReducer = (
     case GameActionTypes.RESTART:
       return { ...state, isRestart: action.payload };
     case GameActionTypes.INIT_GAME:
-      return action.payload;
+      return { ...state, ...action.payload };
+    case GameActionTypes.TOGGLE_SOUND:
+      return { ...state, isSound: action.payload };
     default:
       return state;
   }
