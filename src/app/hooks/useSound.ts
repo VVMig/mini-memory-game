@@ -1,25 +1,27 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const startTime = 0;
 
-const minVolume = 0;
-const maxVolume = 100;
+interface IUseSound {
+  (url: string): [playSound: () => void, mute: (muteState: boolean) => void];
+}
 
-export const useSound = (url: string) => {
+export const useSound: IUseSound = (url: string) => {
   const [sound] = useState(new Audio(url));
+  const [isMute, setIsMute] = useState(false);
 
   const playSound = () => {
     sound.currentTime = startTime;
     sound.play();
   };
 
-  const volumeOff = () => {
-    sound.volume = minVolume;
+  useEffect(() => {
+    sound.volume = +isMute;
+  }, [isMute]);
+
+  const mute = (muteState: boolean) => {
+    setIsMute(muteState);
   };
 
-  const volumeOn = () => {
-    sound.volume = maxVolume;
-  };
-
-  return [playSound, volumeOff, volumeOn];
+  return [playSound, mute];
 };
