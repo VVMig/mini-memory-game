@@ -1,5 +1,4 @@
-import React, { useState, FormEventHandler } from 'react';
-import { ChangeEventHandler } from 'react';
+import React, { useState, FormEventHandler, ChangeEventHandler } from 'react';
 
 import { useHistory } from 'react-router-dom';
 
@@ -12,13 +11,13 @@ import { StartGame } from './StartGame';
 import { Styled } from './styled';
 
 export const Form = () => {
-  const user = useTypedSelector((state) => state.user);
+  const { name, difficulty } = useTypedSelector(({ user }) => user);
 
-  const [username, setUsername] = useState(user.name);
-  const [level, setLevel] = useState(user.difficulty);
+  const [username, setUsername] = useState(name);
+  const [level, setLevel] = useState(difficulty);
 
   const history = useHistory();
-  const { initUser, initGame } = useActions();
+  const { initUser, changeDifficulty } = useActions();
 
   const onSubmitForm: FormEventHandler = (event) => {
     event.preventDefault();
@@ -27,8 +26,12 @@ export const Form = () => {
       return;
     }
 
-    initUser(username, level);
-    initGame();
+    if (name === username) {
+      changeDifficulty(level);
+    } else {
+      initUser(username, level);
+    }
+
     history.push(RoutesEnum.Game);
   };
 

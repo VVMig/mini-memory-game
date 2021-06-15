@@ -32,7 +32,10 @@ export const Actions = () => {
       <Styled.ActionButton title="Restart" onClick={onClickRestart}>
         {icons.Restart}
       </Styled.ActionButton>
-      <Styled.ActionButton title="Restart" onClick={onClickSound}>
+      <Styled.ActionButton
+        title={isSound ? 'Mute' : 'Unmute'}
+        onClick={onClickSound}
+      >
         {isSound ? icons.VolumeOn : icons.VolumeOff}
       </Styled.ActionButton>
     </Styled.Actions>

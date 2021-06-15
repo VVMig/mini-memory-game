@@ -25,6 +25,7 @@ import {
   SunFill,
   VolumeMuteFill,
   VolumeUpFill,
+  Trophy,
 } from 'react-bootstrap-icons';
 
 import { IconType } from './IconType';
@@ -56,4 +57,5 @@ export const icons: Record<IconType, JSX.Element> = {
   [IconType.Umbrella]: <Umbrella />,
   [IconType.Wrench]: <Wrench />,
   [IconType.Sun]: <SunFill />,
+  [IconType.Trophy]: <Trophy />,
 };

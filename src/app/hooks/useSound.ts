@@ -11,6 +11,7 @@ export const useSound: IUseSound = (url: string) => {
   const [isMute, setIsMute] = useState(false);
 
   const playSound = () => {
+    sound.pause();
     sound.currentTime = startTime;
     sound.play();
   };

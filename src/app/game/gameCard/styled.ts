@@ -13,6 +13,11 @@ const GameCardBack = styled.div`
   position: absolute;
   backface-visibility: hidden;
   background-color: ${({ theme }) => theme.opacityLighterGrey()};
+
+  &:hover {
+    transition: background-color 0.1s linear;
+    background-color: ${({ theme }) => theme.lime};
+  }
 `;
 
 const GameCardFront = styled(GameCardBack)`
@@ -23,6 +28,10 @@ const GameCardFront = styled(GameCardBack)`
   color: ${({ theme }) => theme.white};
   background-color: ${({ theme }) => theme.lightBlue};
   font-size: 48px;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.lightBlue};
+  }
 `;
 
 const GameCardInner = styled.div`
@@ -31,6 +40,7 @@ const GameCardInner = styled.div`
   height: 100%;
   transition: transform 0.5s;
   transform-style: preserve-3d;
+  cursor: pointer;
 
   &.entering {
     animation: ${fade} ${matchAnimationDuration}ms linear both reverse;
@@ -42,7 +52,6 @@ const GameCardInner = styled.div`
 
   &.entered {
     display: none;
-
     & ${GameCardFront} {
       backface-visibility: visible;
     }

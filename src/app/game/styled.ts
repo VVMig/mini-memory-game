@@ -35,6 +35,8 @@ const GameField = styled.div<GameFieldProps>`
 `;
 
 const PauseSign = styled.div`
+  display: grid;
+  place-items: center;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -43,6 +45,8 @@ const PauseSign = styled.div`
   font-size: 20vh;
   animation: ${fade} 0.2s linear;
   z-index: ${ZIndex.Pause};
+  height: 100%;
+  width: 100%;
 `;
 
 export const Styled = {

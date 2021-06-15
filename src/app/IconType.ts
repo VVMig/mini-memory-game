@@ -25,4 +25,5 @@ export enum IconType {
   Sun = 'Sun',
   VolumeOff = 'VolumeOff',
   VolumeOn = 'VolumeOn',
+  Trophy = 'Trophy',
 }
