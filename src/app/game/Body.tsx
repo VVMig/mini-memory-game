@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 
-import { useActions, useMatchCards, useTypedSelector } from '../hooks';
+import {
+  useActions,
+  useMatchCards,
+  useSound,
+  useTypedSelector,
+} from '../hooks';
 import { icons } from '../icons';
 import { getRandomCards } from './../helpers';
 import { GameCard } from './gameCard/GameCard';
 import { Styled } from './styled';
 
 export const Body = () => {
+  const [playMatchSound] = useSound(
+    'https://notificationsounds.com/storage/sounds/file-sounds-1140-just-saying.mp3'
+  );
+
   const difficulty = useTypedSelector((store) => store.user.difficulty);
   const isRestart = useTypedSelector((store) => store.game.isRestart);
   const isPaused = useTypedSelector((store) => store.game.isPaused);
@@ -46,6 +55,8 @@ export const Body = () => {
       setCards((prev) =>
         prev.map((card) => (card.isFront ? { ...card, isMatch: true } : card))
       );
+
+      playMatchSound();
     }
 
     setCards((prev) =>
