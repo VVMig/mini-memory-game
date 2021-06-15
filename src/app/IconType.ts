@@ -23,4 +23,6 @@ export enum IconType {
   Umbrella = 'Umbrella',
   Wrench = 'Wrench',
   Sun = 'Sun',
+  VolumeOff = 'VolumeOff',
+  VolumeOn = 'VolumeOn',
 }
