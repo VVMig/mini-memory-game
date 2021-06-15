@@ -26,13 +26,8 @@ export const useMatchCards = (): MatchCards => {
   };
 
   useEffect(() => {
-    if (
-      secondSelectedCard &&
-      secondSelectedCard?.title === firstSelectedCard?.title
-    ) {
-      setIsMatch(true);
-    } else {
-      setIsMatch(false);
+    if (secondSelectedCard && firstSelectedCard) {
+      setIsMatch(secondSelectedCard.title === firstSelectedCard.title);
     }
   }, [secondSelectedCard]);
 
