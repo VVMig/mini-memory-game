@@ -50,8 +50,9 @@ export const Body = () => {
   useEffect(() => {
     if (isRestart) {
       setCards(getRandomCards(difficulty));
-      restart(false);
       resetCards();
+      setIsAllowClick(true);
+      restart(false);
     }
   }, [isRestart]);
 

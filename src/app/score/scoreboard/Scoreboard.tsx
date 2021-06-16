@@ -33,7 +33,7 @@ export const Scoreboard: React.FC<Props> = ({
       {results.length ? (
         <Styled.ScoreResults>
           {results.map((score, index) => (
-            <Styled.Score isRecord={!index}>
+            <Styled.Score isRecord={!index} key={`${score.time}-${index}`}>
               {timeFormat(score.time, true)}
             </Styled.Score>
           ))}
