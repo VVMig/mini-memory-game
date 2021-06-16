@@ -5,7 +5,7 @@ import { useActions, useTypedSelector } from '../../hooks';
 import { icons } from '../../icons';
 import { Styled } from './styled';
 
-const msForUpdate = 1000;
+const msForUpdate = 100;
 
 export const Score = () => {
   const [time, isPaused] = useTypedSelector((store) => [
@@ -17,7 +17,7 @@ export const Score = () => {
 
   const handleStart = () => {
     increment.current = setInterval(() => {
-      updateTime(time + 1);
+      updateTime(time + msForUpdate);
     }, msForUpdate);
   };
 

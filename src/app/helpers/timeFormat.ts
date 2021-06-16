@@ -1,15 +1,15 @@
 import moment from 'moment';
 
-export const timeFormat = (seconds: number) => {
-  const secondsInDay = 86400;
+export const timeFormat = (milliseconds: number, isResult = false) => {
+  const millisecondsInDay = 86400000;
   const hoursInDay = 24;
 
-  const days = seconds / secondsInDay;
+  const days = milliseconds / millisecondsInDay;
   const hours = Math.floor(hoursInDay * days);
 
   return moment()
     .startOf('year')
-    .seconds(seconds)
-    .format('H:mm:ss')
+    .milliseconds(milliseconds)
+    .format(`H:mm:ss${isResult ? ':SS' : ''}`)
     .replace(/^\d{1,2}/, `${hours}`);
 };
