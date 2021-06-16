@@ -15,7 +15,6 @@ const GameCardBack = styled.div`
   background-color: ${({ theme }) => theme.opacityLighterGrey()};
 
   &:hover {
-    transition: background-color 0.1s linear;
     background-color: ${({ theme }) => theme.lime};
   }
 `;
@@ -27,7 +26,6 @@ const GameCardFront = styled(GameCardBack)`
   transform: rotateY(180deg);
   color: ${({ theme }) => theme.white};
   background-color: ${({ theme }) => theme.lightBlue};
-  font-size: 48px;
 
   &:hover {
     background-color: ${({ theme }) => theme.lightBlue};

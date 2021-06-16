@@ -1,4 +1,4 @@
-export interface GameFieldProps {
+export interface DifficultySize {
   size: number;
 }
 

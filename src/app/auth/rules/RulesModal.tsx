@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { Button } from '../../../packages';
 import { Styled } from './styled';
 
 interface Props {
@@ -23,7 +22,7 @@ export const RulesModal: React.FC<Props> = ({
         over, and find the second such card. The game is considered over when
         all pairs of cards are collected. Good luck!
       </div>
-      <Button onClick={handleModalClose}>Got it</Button>
+      <Styled.RulesButton onClick={handleModalClose}>Got it</Styled.RulesButton>
     </Styled.RulesModal>
   );
 };
