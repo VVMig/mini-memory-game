@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { Modal } from '../../../packages';
 import { squareSize } from '../../helpers';
-import { LevelNavProps } from './interfaces';
+import { LevelNavProps, ScoreProps } from './interfaces';
 
 const deckstopSize = 650;
 const hoverOpacity = 0.2;
@@ -10,11 +10,14 @@ const hoverOpacity = 0.2;
 const Scoreboard = styled(Modal)`
   ${squareSize(deckstopSize)};
   background-color: ${({ theme }) => theme.white};
+  display: flex;
+  flex-direction: column;
 `;
 
-const LevelNavBar = styled.div`
+const LevelNavbar = styled.div`
   display: flex;
   width: 100%;
+  overflow: hidden;
 `;
 
 const LevelNav = styled.div<LevelNavProps>`
@@ -52,8 +55,54 @@ const LevelNav = styled.div<LevelNavProps>`
     `}
 `;
 
+const ScoreResults = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: auto;
+  height: 100%;
+`;
+
+const Score = styled.div<ScoreProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 0;
+  text-align: center;
+  font-size: 24px;
+  font-weight: lighter;
+  border-bottom: 1px solid ${({ theme }) => theme.opacityGrey()};
+  cursor: pointer;
+  position: relative;
+
+  ${({ isRecord }) =>
+    isRecord &&
+    css`
+      background-color: ${({ theme }) => theme.gold};
+    `}
+
+  &:hover {
+    transition: 0.1s linear;
+    background-color: ${({ theme }) => theme.lime};
+    color: ${({ theme }) => theme.white};
+  }
+`;
+
+const EmptyResults = styled.div`
+  display: grid;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  place-items: center;
+  font-size: 22px;
+  color: ${({ theme }) => theme.opacityGrey()};
+`;
+
 export const Styled = {
   Scoreboard,
-  LevelNavBar,
+  LevelNavbar,
   LevelNav,
+  ScoreResults,
+  Score,
+  EmptyResults,
 };
