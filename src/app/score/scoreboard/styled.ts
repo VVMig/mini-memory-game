@@ -41,13 +41,13 @@ const LevelNav = styled.div<LevelNavProps>`
   padding: 8px 0;
   display: flex;
   justify-content: center;
-  flex: 2 1;
   font-size: 24px;
   color: ${({ theme }) => theme.opacityGrey()};
   border-right: 1px solid ${({ theme }) => theme.lightBlue};
   border-bottom: 1px solid ${({ theme }) => theme.lightBlue};
   cursor: pointer;
   transition: 0.2s linear;
+  flex: 1;
 
   &:hover {
     background: ${({ theme }) => theme.opacityLighterGrey(hoverOpacity)};
@@ -62,7 +62,6 @@ const LevelNav = styled.div<LevelNavProps>`
   ${({ isActive }) =>
     isActive &&
     css`
-      flex: 1 1;
       background: ${({ theme }) => theme.lightBlue};
       color: ${({ theme }) => theme.white};
 
