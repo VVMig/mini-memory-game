@@ -1,3 +1,7 @@
 export enum Breakpoints {
-  Desktop = 1024,
+  LargeDesktop = 1200,
+  Desktop = 992,
+  Tablet = 768,
+  Phone = 576,
+  SmallPhone = 320,
 }

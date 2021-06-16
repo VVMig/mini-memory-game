@@ -1,17 +1,34 @@
 import styled, { css } from 'styled-components';
 
 import { Modal } from '../../../packages';
+import { Breakpoints } from '../../Breakpoints';
 import { squareSize } from '../../helpers';
 import { LevelNavProps, ScoreProps } from './interfaces';
 
-const deckstopSize = 650;
+const desktopSquareSize = 650;
+const tabletSquareSize = 520;
+const phoneSquareSize = 320;
+const smallPhoneSquareSize = 250;
+
 const hoverOpacity = 0.2;
 
 const Scoreboard = styled(Modal)`
-  ${squareSize(deckstopSize)};
+  ${squareSize(desktopSquareSize)};
   background-color: ${({ theme }) => theme.white};
   display: flex;
   flex-direction: column;
+
+  @media (max-width: ${Breakpoints.Tablet}px) {
+    ${squareSize(tabletSquareSize)};
+  }
+
+  @media (max-width: ${Breakpoints.Phone}px) {
+    ${squareSize(phoneSquareSize)};
+  }
+
+  @media (max-width: ${Breakpoints.SmallPhone}px) {
+    ${squareSize(smallPhoneSquareSize)};
+  }
 `;
 
 const LevelNavbar = styled.div`
@@ -53,6 +70,20 @@ const LevelNav = styled.div<LevelNavProps>`
         background: ${({ theme }) => theme.lightBlue};
       }
     `}
+
+  @media (max-width: ${Breakpoints.Tablet}px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: ${Breakpoints.Phone}px) {
+    font-size: 18px;
+    padding: 6px 0;
+  }
+
+  @media (max-width: ${Breakpoints.SmallPhone}px) {
+    font-size: 14px;
+    padding: 4px 0;
+  }
 `;
 
 const ScoreResults = styled.div`
@@ -86,6 +117,18 @@ const Score = styled.div<ScoreProps>`
     background-color: ${({ theme }) => theme.lime};
     color: ${({ theme }) => theme.white};
   }
+
+  @media (max-width: ${Breakpoints.Tablet}px) {
+    font-size: 22px;
+  }
+
+  @media (max-width: ${Breakpoints.Phone}px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: ${Breakpoints.SmallPhone}px) {
+    font-size: 14px;
+  }
 `;
 
 const EmptyResults = styled.div`
@@ -96,6 +139,14 @@ const EmptyResults = styled.div`
   place-items: center;
   font-size: 22px;
   color: ${({ theme }) => theme.opacityGrey()};
+
+  @media (max-width: ${Breakpoints.Phone}px) {
+    font-size: 16px;
+  }
+
+  @media (max-width: ${Breakpoints.SmallPhone}px) {
+    font-size: 14px;
+  }
 `;
 
 export const Styled = {

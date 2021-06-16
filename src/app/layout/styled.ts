@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 import { scale } from '../../packages';
-import { Breakpoints } from '../Breakpoints';
 
 export const pageAnimationDuration = 200;
 
@@ -16,7 +15,6 @@ const Background = styled.div`
 
 const Container = styled.div`
   display: grid;
-  max-width: ${Breakpoints.Desktop}px;
   width: 100%;
   height: inherit;
   place-items: center;

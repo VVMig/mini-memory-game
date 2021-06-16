@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { Button } from '../../../packages';
+import { Breakpoints } from '../../Breakpoints';
 import { squareSize } from '../../helpers';
 
 const hoverEffectSizeBack = 50;
@@ -24,6 +25,14 @@ const Score = styled.div`
   color: ${({ theme }) => theme.opacityGrey()};
   font-weight: lighter;
   align-items: center;
+
+  @media (max-width: ${Breakpoints.Phone}px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: ${Breakpoints.SmallPhone}px) {
+    font-size: 12px;
+  }
 `;
 
 const Time = styled.span`
@@ -50,6 +59,12 @@ const BackButton = styled(Button)`
   &::after {
     ${squareSize(hoverEffectSizeBack)}
   }
+
+  @media (max-width: ${Breakpoints.Phone}px) {
+    & span {
+      font-size: 12px;
+    }
+  }
 `;
 
 const Actions = styled.div`
@@ -64,11 +79,25 @@ const ActionButton = styled(BackButton)`
   }
 
   background: ${({ theme }) => theme.lightBlue};
-  padding: 10px;
+  padding: 5px;
 
   &::before,
   &::after {
     display: none;
+  }
+
+  @media (max-width: ${Breakpoints.Phone}px) {
+    & span {
+      font-size: 22px;
+    }
+  }
+
+  @media (max-width: ${Breakpoints.SmallPhone}px) {
+    border-radius: 8px;
+
+    & span {
+      font-size: 18px;
+    }
   }
 `;
 

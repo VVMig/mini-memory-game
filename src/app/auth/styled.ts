@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
+import { Button } from '../../packages';
+import { Breakpoints } from '../Breakpoints';
 import { squareSize } from '../helpers';
 
-const deckstopSquareSize = 400;
+const desktopSquareSize = 400;
+const phoneSquareSize = 280;
+const smallPhoneSquareSize = 200;
 
 const Auth = styled.div`
   background-color: ${({ theme }) => theme.white};
@@ -10,18 +14,36 @@ const Auth = styled.div`
 `;
 
 const FormContainer = styled.div`
-  ${squareSize(deckstopSquareSize)};
+  ${squareSize(desktopSquareSize)};
   display: grid;
   place-items: center;
+
+  @media (max-width: ${Breakpoints.Phone}px) {
+    ${squareSize(phoneSquareSize)};
+  }
+
+  @media (max-width: ${Breakpoints.SmallPhone}px) {
+    ${squareSize(smallPhoneSquareSize)}
+  }
 `;
 
-const AuthForm = styled.form`
+const AuthForm = styled.form.attrs(() => ({
+  autoComplete: 'off',
+}))`
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
   padding: 0 60px;
+
+  @media (max-width: ${Breakpoints.Phone}px) {
+    padding: 0 30px;
+  }
+
+  @media (max-width: ${Breakpoints.SmallPhone}px) {
+    padding: 0 15px;
+  }
 `;
 
 const Label = styled.label`
@@ -33,6 +55,10 @@ const Label = styled.label`
   font-size: 1rem;
   align-self: flex-start;
   color: ${({ theme }) => theme.opacityLighterGrey()};
+
+  @media (max-width: ${Breakpoints.Phone}px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const UsernameField = styled.input.attrs(() => ({
@@ -77,10 +103,48 @@ const UsernameField = styled.input.attrs(() => ({
       font-weight: 700;
     }
   }
+
+  @media (max-width: ${Breakpoints.Phone}px) {
+    font-size: 1rem;
+
+    &:placeholder-shown ~ {
+      ${Label} {
+        font-size: 1rem;
+      }
+    }
+
+    &:focus {
+      ~ ${Label} {
+        font-size: 0.8rem;
+      }
+    }
+  }
 `;
 
 const StartGame = styled.div`
   padding: 15px 0 1px;
+
+  @media (max-width: ${Breakpoints.Phone}px) {
+    padding: 9px 0 1px;
+  }
+`;
+
+const StartGameButton = styled(Button)`
+  @media (max-width: ${Breakpoints.Phone}px) {
+    padding: 9px 0;
+    width: 150px;
+    & span {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: ${Breakpoints.SmallPhone}px) {
+    padding: 8px 0;
+    width: 120px;
+    & span {
+      font-size: 12px;
+    }
+  }
 `;
 
 const DifficultySelect = styled.div`
@@ -88,6 +152,10 @@ const DifficultySelect = styled.div`
   padding: 15px 50px 0;
   justify-content: space-around;
   width: 100%;
+
+  @media (max-width: ${Breakpoints.Phone}px) {
+    padding: 9px 35px 0;
+  }
 `;
 
 const Level = styled.div`
@@ -107,6 +175,14 @@ const LevelLabel = styled.label`
 
   &:hover {
     opacity: 1;
+  }
+
+  @media (max-width: ${Breakpoints.Phone}px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: ${Breakpoints.SmallPhone}px) {
+    font-size: 12px;
   }
 `;
 
@@ -133,4 +209,5 @@ export const Styled = {
   LevelRadio,
   LevelLabel,
   Level,
+  StartGameButton,
 };
