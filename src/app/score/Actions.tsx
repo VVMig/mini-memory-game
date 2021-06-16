@@ -8,7 +8,7 @@ import { RoutesEnum } from '../RoutesEnum';
 import { Scoreboard } from './scoreboard/Scoreboard';
 import { Styled } from './styled';
 
-const modalAnimationDutation = 150;
+const modalAnimationDuration = 150;
 
 export const Actions = () => {
   const [isScoreboardShow, setIsScoreboardShow] = useState(false);
@@ -33,7 +33,7 @@ export const Actions = () => {
       </Styled.ScoreboardButton>
       <Transition
         in={isScoreboardShow}
-        timeout={modalAnimationDutation}
+        timeout={modalAnimationDuration}
         unmountOnExit
       >
         {(state) => (
